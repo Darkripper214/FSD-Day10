@@ -1,0 +1,24 @@
+<div class="container">
+  {{#if resultState}}
+  <div class="row">
+    {{#each payload}}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h4 class="card-title">{{this.book_title}}</h4>
+        <span>By {{this.book_author}}</span>
+        <h5>Reviewer: {{this.byline}}</h5>
+        <span>Date: {{this.publication_dt}}</span>
+        <p class="card-text">{{this.summary}}</p>
+        <a href="{{this.url}}" class="btn btn-primary" target="_blank">Full Review</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <small>Copyright (c) 2020 The New York Times Company. All Rights Reserved</small>
+  {{else }}
+  <h1> There are no review Result</h1>
+  {{/if}}
+  <div class="">
+    <a href="/" class="btn btn-primary">Return Home</a>
+  </div>
+</div>

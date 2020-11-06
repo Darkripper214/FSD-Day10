@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="">
+    <h1>Letter {{letter}}</h1>
+  </div>
+
+  {{#each results }}
+  <div class="list-group">
+    <a href="/book/detail/{{this.book_id}}" class="list-group-item list-group-item-action">{{this.title}}</a>
+  </div>
+  {{/each}}
+
+  <form action="/book/{{letter}}" method="get">
+    <div class="row ml-1 mr-1">
+      {{#if prevBtnState}}
+      <button class=" btn btn-warning" type="submit" name='btnState' value='prev'>Previous Page</button>
+      {{/if }}
+      <div class="col d-flex justify-content-center">
+        <a class="btn btn-primary" href="/" role="button">Return Home</a>
+      </div>
+      {{#if nextBtnState}}
+      <button class="btn btn-warning" type="submit" name='btnState' value='next'>Next Page</button>
+      {{/if }}
+      <input type="hidden" name="offset" value='{{offset}}'>
+    </div>
+  </form>
+</div>

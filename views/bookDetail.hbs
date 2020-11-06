@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-4">{{result.title}}</h1>
+      <p class="lead">by {{ result.authors}}</p>
+      <small class='d-block'>Pages: {{result.pages}}</small>
+      <small class='d-block'>Rating: {{result.rating}} / 5.00</small>
+      <small class='d-block'>Rating Count: {{result.rating_count}}</small>
+      <small class='d-block'>Review: {{result.review_count}}</small>
+      <small class='d-block'>Genre: {{result.genres}}</small>
+    </div>
+    <div class="col">
+
+      <img src="{{result.image_url}}" alt="{{result.title}} cover" class="img-detail">
+    </div>
+  </div>
+
+  <hr class="my-4">
+  <p>{{result.description}}</p>
+  <a class="btn btn-primary btn-lg" href="/book/detail/{{result.book_id}}/review" role="button">Find Review</a>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Return Home</a>
+</div>

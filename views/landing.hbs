@@ -1,0 +1,22 @@
+<div class="container">
+
+  <h1>My Bookstore</h1>
+  <span>Search by First Letter</span>
+  <div class="row">
+
+    {{#each landingBtn}}
+
+
+
+    {{#each this}}
+    <div class="col col-2 mt-2">
+      <div class="">
+        <a href="/book/{{this}}" class='btn btn-primary btn-size'>{{this}}</a>
+      </div>
+    </div>
+    {{/each}}
+
+    {{/each}}
+
+  </div>
+</div>
