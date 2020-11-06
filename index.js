@@ -81,7 +81,7 @@ let detailQuery = getDBResults(SQL_QUERY_BY_ID, pool);
 let titleQuery = getDBResults(SQL_QUERY_BY_ID_FOR_TITLE, pool);
 
 let bookReviewUrl = 'https://api.nytimes.com/svc/books/v3/reviews.json';
-app.use(morgan('combined'));
+/* app.use(morgan('combined')); */
 app.use(express.static('public'));
 
 // Book Review End Point
@@ -90,7 +90,6 @@ app.get('/book/detail/:bookid/review', async (req, res) => {
   try {
     title = await titleQuery(bookid);
     title = title[0].title;
-
     let queryUrl = queryString.stringifyUrl({
       url: bookReviewUrl,
       query: {
@@ -100,7 +99,11 @@ app.get('/book/detail/:bookid/review', async (req, res) => {
     });
 
     let results = await fetch(queryUrl);
+
     results = await results.json();
+    if (results.fault) {
+      throw `${results['fault']['faultstring']}`;
+    }
     results.num_results <= 0 ? (resultState = false) : (resultState = true);
     let payload = results.results;
 
