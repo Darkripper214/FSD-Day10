@@ -1,6 +1,9 @@
 <div class="jumbotron">
   <div class="row">
-    <div class="col">
+    <div class="col-2">
+      <img src="{{result.image_url}}" alt="{{result.title}} cover" class="img-detail">
+    </div>
+    <div class="col-9">
       <h1 class="display-4">{{result.title}}</h1>
       <p class="lead">by {{ result.authors}}</p>
       <small class='d-block'>Pages: {{result.pages}}</small>
@@ -8,10 +11,6 @@
       <small class='d-block'>Rating Count: {{result.rating_count}}</small>
       <small class='d-block'>Review: {{result.review_count}}</small>
       <small class='d-block'>Genre: {{result.genres}}</small>
-    </div>
-    <div class="col">
-
-      <img src="{{result.image_url}}" alt="{{result.title}} cover" class="img-detail">
     </div>
   </div>
 

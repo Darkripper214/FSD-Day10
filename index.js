@@ -81,7 +81,9 @@ let detailQuery = getDBResults(SQL_QUERY_BY_ID, pool);
 let titleQuery = getDBResults(SQL_QUERY_BY_ID_FOR_TITLE, pool);
 
 let bookReviewUrl = 'https://api.nytimes.com/svc/books/v3/reviews.json';
-/* app.use(morgan('combined')); */
+
+// Morgan used to log all traffic
+app.use(morgan('combined'));
 app.use(express.static('public'));
 
 // Book Review End Point
@@ -137,7 +139,7 @@ app.get('/book/detail/:bookid', async (req, res) => {
           authors: result.authors,
           summary: result.description,
           pages: result.pages,
-          rating: result.rating,
+          rating: parseFloat(result.rating),
           ratingCount: result.rating_count,
           genre: result.genres,
         };
